@@ -3,12 +3,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="24dp">
+    android:padding="24dp"
+    android:background="@color/ashgray">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:text="Sign Up"
+        android:gravity="center"
+        android:textSize="20dp"
+        android:textStyle="bold"/>
 
     <EditText
         android:id="@+id/etNewUsername"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="363dp"
+        android:layout_height="55dp"
+        android:padding="16dp"
+        android:paddingEnd="16dp"
+        android:background="@drawable/rounded_button"
         android:hint="Username" />
 
     <EditText
@@ -27,7 +40,11 @@
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Register" />
+        android:layout_width="173dp"
+        android:layout_height="47dp"
+        android:background="@drawable/rounded_button"
+        android:backgroundTint="@color/green"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:text="Daftar" />
 </LinearLayout>
