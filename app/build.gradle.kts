@@ -53,6 +53,8 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.firebase.firestore)
     implementation(libs.androidx.constraintlayout)
+    implementation("androidx.viewpager2:viewpager2:1.0.0")
+    implementation(libs.androidx.cardview)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
