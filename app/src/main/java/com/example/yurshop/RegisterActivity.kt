@@ -2,9 +2,15 @@ package com.example.yurshop
 import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
+import android.text.SpannableString
+import android.text.Spanned
+import android.text.method.LinkMovementMethod
+import android.text.style.ClickableSpan
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.ImageView
+import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
 class RegisterActivity : AppCompatActivity() {
@@ -48,5 +54,21 @@ class RegisterActivity : AppCompatActivity() {
                 finish()
             }
         }
+
+        // Di dalam onCreate()
+        val punyaAkunTextView = findViewById<TextView>(R.id.PunyaAkun)
+        val spannableString = SpannableString(punyaAkunTextView.text)
+        val clickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                startActivity(intent)
+            }
+
+        }
+        val masukStartIndex = spannableString.indexOf("Masuk")
+        val masukEndIndex = masukStartIndex + "Masuk".length
+        spannableString.setSpan(clickableSpan, masukStartIndex, masukEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        punyaAkunTextView.text = spannableString
+        punyaAkunTextView.movementMethod = LinkMovementMethod.getInstance()
     }
 }
