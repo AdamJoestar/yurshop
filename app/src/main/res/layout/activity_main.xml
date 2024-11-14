@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:layout_marginTop="61dp">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="24dp">
+
 
     <TextView
         android:id="@+id/appNameTextView"
@@ -17,12 +18,12 @@
         android:textSize="20sp" />
 
     <ImageView
-        android:id="@+id/notificationButton"
+        android:id="@+id/favoritesButton"
         android:layout_width="24dp"
         android:layout_height="24dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:src="@drawable/ic_notification" />
+        android:src="@drawable/ic_fav" />
 
     <ImageView
         android:id="@+id/searchButton"
@@ -30,13 +31,13 @@
         android:layout_height="24dp"
         android:layout_alignParentTop="true"
         android:layout_marginRight="17dp"
-        android:layout_toStartOf="@id/notificationButton"
+        android:layout_toStartOf="@id/favoritesButton"
         android:src="@drawable/ic_search" />
 
     <androidx.viewpager2.widget.ViewPager2
         android:id="@+id/viewPager"
-        android:layout_width="367dp"
-        android:layout_height="156dp"
+        android:layout_width="match_parent"
+        android:layout_height="162dp"
         android:layout_below="@id/appNameTextView"
         android:layout_marginTop="22dp" />
 
@@ -45,35 +46,41 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/viewPager"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:textColor="@drawable/text_color_selector">
 
-        <Button
-            android:id="@+id/recentButton"
+        <TextView
+            android:id="@+id/popularTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Recent" />
+            android:text="Popular"
+            android:textColor="@color/text_color_selector"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
-        <Button
-            android:id="@+id/popularButton"
+        <TextView
+            android:id="@+id/paketTextView"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Popular" />
-
-        <Button
-            android:id="@+id/paketButton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Paket Sayur" />
+            android:text="Paket"
+            android:textColor="@color/text_color_selector"
+            android:gravity="center"
+            android:padding="16dp"
+            android:clickable="true"
+            android:focusable="true"/>
 
     </LinearLayout>
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/buttonLayout">
+        android:layout_height="445dp"
+        android:layout_below="@id/buttonLayout"
+        android:layout_alignBottom="@+id/buttonLayout"
+        android:layout_marginBottom="-445dp">
 
         <LinearLayout
             android:id="@+id/productLayout"
@@ -94,7 +101,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
+                        android:src="@drawable/sawi" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -104,7 +111,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama Produk"
+                            android:text="Sawi"
                             android:textSize="18sp" />
 
                         <TextView
@@ -112,16 +119,25 @@
                             android:layout_height="wrap_content"
                             android:text="Stok: 10" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RatingBar
+                            android:id="@+id/productRatingBar1"
+                            style="@style/RatingBarCustom"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
+                            android:layout_gravity="start"
+                            android:numStars="5"
+                            android:progressTint="@color/bintang"
+                            android:rating="5"
+                            android:scaleX="0.3"
+                            android:scaleY="0.3"
+                            android:stepSize="0.5" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -134,7 +150,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
+                        android:src="@drawable/kangkung" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -144,7 +160,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama Produk"
+                            android:text="Kangkung"
                             android:textSize="18sp" />
 
                         <TextView
@@ -152,16 +168,25 @@
                             android:layout_height="wrap_content"
                             android:text="Stok: 10" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RatingBar
+                            android:id="@+id/productRatingBar2"
+                            style="@style/RatingBarCustom"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
+                            android:layout_gravity="start"
+                            android:numStars="5"
+                            android:progressTint="@color/bintang"
+                            android:rating="5"
+                            android:scaleX="0.3"
+                            android:scaleY="0.3"
+                            android:stepSize="0.5" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -174,7 +199,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
+                        android:src="@drawable/tomat" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -184,7 +209,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama Produk"
+                            android:text="Tomat"
                             android:textSize="18sp" />
 
                         <TextView
@@ -192,16 +217,25 @@
                             android:layout_height="wrap_content"
                             android:text="Stok: 10" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RatingBar
+                            android:id="@+id/productRatingBar3"
+                            style="@style/RatingBarCustom"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
+                            android:layout_gravity="start"
+                            android:numStars="5"
+                            android:progressTint="@color/bintang"
+                            android:rating="5"
+                            android:scaleX="0.3"
+                            android:scaleY="0.3"
+                            android:stepSize="0.5" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
+
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
@@ -214,7 +248,7 @@
                     <ImageView
                         android:layout_width="100dp"
                         android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
+                        android:src="@drawable/bokchoy" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -224,7 +258,7 @@
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Nama Produk"
+                            android:text="Bok-choy"
                             android:textSize="18sp" />
 
                         <TextView
@@ -232,140 +266,42 @@
                             android:layout_height="wrap_content"
                             android:text="Stok: 10" />
 
-                        <TextView
-                            android:layout_width="wrap_content"
+                        <RatingBar
+                            android:id="@+id/productRatingBar4"
+                            style="@style/RatingBarCustom"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
+                            android:layout_gravity="start"
+                            android:numStars="5"
+                            android:progressTint="@color/bintang"
+                            android:rating="5"
+                            android:scaleX="0.3"
+                            android:scaleY="0.3"
+                            android:stepSize="0.5" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
 
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nama Produk"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stok: 10" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nama Produk"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stok: 10" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-            <androidx.cardview.widget.CardView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
-                        android:src="@drawable/your_logo" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Nama Produk"
-                            android:textSize="18sp" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Stok: 10" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Harga: Rp 10.000" />
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
             <!-- Tambahkan box produk lainnya di sini -->
 
         </LinearLayout>
 
     </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNavigationBar"
+        style="@style/GreenBottomNavStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconTint="@color/bottom_nav_icon_color"/>
+
+
+    <!-- Bottom Navigation Bar -->
 
 </RelativeLayout>

@@ -4,10 +4,13 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF">
 
-    <ImageView
-        android:id="@+id/logoImage"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
+    <TextView
+        android:id="@+id/appNameTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/your_logo" />
+        android:text="YurShop"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 </RelativeLayout>
