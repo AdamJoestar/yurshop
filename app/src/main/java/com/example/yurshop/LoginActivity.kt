@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
         setContentView(R.layout.activity_login)
 
         val btnLogin = findViewById<Button>(R.id.btnLogin)
-        val tvRegister = findViewById<TextView>(R.id.BelumPunyaAkun)
+        findViewById<TextView>(R.id.BelumPunyaAkun)
 
         btnLogin.setOnClickListener {
             // Setelah login berhasil, berpindah ke MainActivity
@@ -30,6 +30,21 @@ class LoginActivity : AppCompatActivity() {
             startActivity(intent)
             finish()
         }
+
+
+        val tvForgotPassword = findViewById<TextView>(R.id.Forgot)
+        val forgotSpannableString = SpannableString(tvForgotPassword.text)
+        val forgotClickableSpan = object : ClickableSpan() {
+            override fun onClick(widget: View) {
+                // Pindah ke ForgotActivity saat diklik
+                val intent = Intent(this@LoginActivity, ForgotActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        forgotSpannableString.setSpan(forgotClickableSpan, 0, forgotSpannableString.length, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        tvForgotPassword.text = forgotSpannableString
+        tvForgotPassword.movementMethod = LinkMovementMethod.getInstance()
+
 
         val etPassword = findViewById(R.id.etPassword) as EditText
         val ivTogglePassword = findViewById(R.id.ivTogglePassword) as ImageView
@@ -45,23 +60,20 @@ class LoginActivity : AppCompatActivity() {
             etPassword.setSelection(etPassword.text.length)
         }
 
-        // Membuat SpannableString untuk TextView tvRegister
-        val spannableString = SpannableString(tvRegister.text)
-        val clickableSpan = object : ClickableSpan() {
+        // Register link
+        val tvRegister = findViewById<TextView>(R.id.BelumPunyaAkun)
+        val registerSpannableString = SpannableString(tvRegister?.text)
+        val registerClickableSpan = object : ClickableSpan() {
             override fun onClick(widget: View) {
                 // Pindah ke RegisterActivity saat diklik
                 val intent = Intent(this@LoginActivity, RegisterActivity::class.java)
                 startActivity(intent)
             }
         }
-
-        // Mencari index kata "Daftar" dan menerapkan ClickableSpan
-        val daftarStartIndex = spannableString.indexOf("Daftar")
+        val daftarStartIndex = registerSpannableString.indexOf("Daftar")
         val daftarEndIndex = daftarStartIndex + "Daftar".length
-        spannableString.setSpan(clickableSpan, daftarStartIndex, daftarEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
-
-        // Mengatur SpannableString ke TextView dan mengaktifkan link
-        tvRegister.text = spannableString
+        registerSpannableString.setSpan(registerClickableSpan, daftarStartIndex, daftarEndIndex, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE)
+        tvRegister.text = registerSpannableString
         tvRegister.movementMethod = LinkMovementMethod.getInstance()
     }
 }
