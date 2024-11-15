@@ -9,4 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="green">#4CAF50</color>
     <color name="ashgray">#F5F5F5</color>
+    <color name="bintang">#FF9500</color>
+    <color name="gray">#A9A9A9</color>
 </resources>

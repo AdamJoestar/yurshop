@@ -6,4 +6,12 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="windowNoTitle">true</item>
     </style>
+    <style name="AppTheme.GreenBottomNav" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize other theme attributes as needed -->
+        <item name="bottomNavigationStyle">@style/GreenBottomNavStyle</item>
+    </style>
+
+    <style name="GreenBottomNavStyle" parent="Widget.Design.BottomNavigationView">
+        <item name="backgroundTint">@color/green</item>
+    </style>
         </resources>
